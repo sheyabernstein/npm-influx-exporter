@@ -27,10 +27,12 @@ jobs:
       - name: Build and Push Docker image
         run: |
            VERSION=${{ github.ref_name }}
-           docker buildx build \
-             --platform linux/amd64,linux/arm64 \
-             --target production \
+           PUBLISH_VERSION=${VERSION:1}
+           echo "Version to publish is ${PUBLISH_VERSION}"
+
+           docker build \
              --push \
-             --tag ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${VERSION:1} \
+             --target production \
              --tag ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest \
+             --tag ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${PUBLISH_VERSION} \
              .
