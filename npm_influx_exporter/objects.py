@@ -8,7 +8,7 @@ class LimitedSizeSet:
 
     max_size: int
 
-    def __init__(self, max_size: int = 256):
+    def __init__(self, max_size: int = 512):
         self.max_size = max_size
         self.queue = deque(maxlen=max_size)
         self.set = set()
@@ -35,7 +35,7 @@ class LimitedSizeSet:
         return element in self.set
 
     def __len__(self):
-        return len(self.set)
+        return self.set.__len__()
 
     def __iter__(self):
         return self.set.__iter__()
