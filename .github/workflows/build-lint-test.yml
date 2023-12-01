@@ -18,7 +18,7 @@ jobs:
 
     - name: Lint
       run: |
-        docker run npm-influx-exporter ruff .
+        docker run npm-influx-exporter ruff check .
 
     - name: Test
       run: |
