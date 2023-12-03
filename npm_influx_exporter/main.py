@@ -40,6 +40,9 @@ def run():
     if settings.DEBUG:
         logger.info("Debug: on")
 
+    if settings.MONITOR_IP_ADDRESSES:
+        logger.info(f"Ignoring {len(settings.MONITOR_IP_ADDRESSES)} monitor IP addresses")
+
     while True:
         if settings.external_ip_needs_refresh:
             settings.get_external_ip()
