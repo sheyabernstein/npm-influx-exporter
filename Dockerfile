@@ -1,4 +1,4 @@
-FROM python:3.10.12-alpine as builder
+FROM python:3.10-alpine as builder
 
 MAINTAINER "Sheya Bernstein sheya@sheyabernstein.com"
 
@@ -9,6 +9,8 @@ ARG POETRY_VENV=/app/.venv
 
 ENV PYTHONPATH="${PYTHONPATH}:/app/$APP_NAME"
 ENV PATH="$POETRY_HOME/bin:$POETRY_VENV/bin:$PATH"
+
+RUN apk update && apk --no-cache upgrade
 
 WORKDIR /app
 

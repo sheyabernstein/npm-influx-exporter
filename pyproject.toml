@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "npm-influx-exporter"
-version = "0.0.1"
+version = "0.0.2"
 description = "Export Nginx Proxy Manager logs to Influxdb"
 authors = ["Sheya Bernstein <sheya@sheyabernstein.com>"]
 license = "MIT"
