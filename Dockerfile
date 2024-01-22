@@ -10,7 +10,9 @@ ARG POETRY_VENV=/app/.venv
 ENV PYTHONPATH="${PYTHONPATH}:/app/$APP_NAME"
 ENV PATH="$POETRY_HOME/bin:$POETRY_VENV/bin:$PATH"
 
-RUN apk update && apk --no-cache upgrade
+RUN apk update \
+    && apk --no-cache upgrade \
+    && pip uninstall -y pip
 
 WORKDIR /app
 
